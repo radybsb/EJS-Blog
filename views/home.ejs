@@ -1,0 +1,20 @@
+<%- include("partials/header"); %> 
+
+<h1>Home</h1>
+
+<p> <%= homeText %> </p>
+
+<% postLists.forEach((list) => { %>
+  <a class="post-title" href="/posts/<%= list.title %>"><h1> <%= list.title %> </h1></a>
+
+  <% if(list.content.length > 200) { %> 
+    <p> 
+      <%= list.content.substring(0,200) + " ..." %> 
+      <a class="read-more" href="/posts/<%= list.title %>">Read More</a> 
+    </p>
+    <% } else { %>
+      <p> <%= list.content %> </p>
+    <% } %>
+  <% }); %> 
+
+<%- include("partials/footer"); %> 
